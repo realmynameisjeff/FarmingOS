@@ -1,9 +1,17 @@
 from fastapi import FastAPI
+from app.api import commodities
+
 
 app = FastAPI(
     title="FarmingOS API",
     description="Agriculture intelligence platform",
     version="0.1.0"
+)
+
+
+app.include_router(
+    commodities.router,
+    prefix="/api"
 )
 
 
